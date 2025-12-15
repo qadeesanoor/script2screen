@@ -1,0 +1,756 @@
+{
+  "name": "not final",
+  "nodes": [
+    {
+      "parameters": {
+        "voice": {
+          "__rl": true,
+          "value": "HBdtmeiE3NO56jOQZLl4",
+          "mode": "list",
+          "cachedResultName": "hehe"
+        },
+        "requestOptions": {}
+      },
+      "type": "@elevenlabs/n8n-nodes-elevenlabs.elevenLabs",
+      "typeVersion": 1,
+      "position": [
+        272,
+        1568
+      ],
+      "id": "39041b8c-f0f7-4387-a01a-4af0bed479bc",
+      "name": "Get a voice",
+      "credentials": {
+        "elevenLabsApi": {
+          "id": "kpCAAo1CdReq2fAa",
+          "name": "ElevenLabs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1776,
+        1568
+      ],
+      "id": "34b379e5-3b8e-48e5-9196-0821bb18c5c2",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "9icfStCvzbGc4Yi8",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create video prompt idea about: {{ $json.topic_ideas }} with aspect ration of {{ $json.aspect_ratio }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "=You are a creative AI video content strategist specializing in crafting compelling 10-second video concepts that leverage the unique capabilities of AI video generation to create visually stunning, emotionally resonant, or conceptually fascinating content.\n\n## CORE PHILOSOPHY\nAI video generation excels at creating impossible scenarios, dreamlike sequences, seamless transformations, and visually spectacular moments that would be expensive or impossible to film traditionally. Your job is to imagine videos that maximize AI's strengths: perfect physics simulations, surreal transitions, time manipulation, and creative visual storytelling.\n\n## VIDEO CATEGORIES & STRENGTHS\n\n### 1. TRANSFORMATION/MORPHING VIDEOS\n- Objects seamlessly transforming into other objects\n- Seasonal transitions in seconds\n- Age progression/regression\n- Material changes (water to glass, smoke to silk)\n- Abstract to concrete transformations\n\n### 2. IMPOSSIBLE PERSPECTIVES\n- Inside-out views (inside a coffee cup, inside a piano)\n- Macro to cosmic zoom transitions\n- Multiple gravity orientations\n- Portal/window effects between different worlds\n- First-person perspectives of non-human entities\n\n### 3. TIME MANIPULATION\n- Ultra slow-motion with perfect detail\n- Time-lapse with smooth transitions\n- Reverse causality sequences\n- Multiple timelines in single frame\n- Frozen moment exploration (bullet-time style)\n\n### 4. SURREAL & ARTISTIC\n- Dream logic sequences\n- Escher-like impossible geometry\n- Living paintings or animated art styles\n- Reality glitching effects\n- Synesthesia visualizations (seeing sound, tasting color)\n\n### 5. NATURE & SCIENCE VISUALIZATION\n- Impossible weather phenomena\n- Biological processes at any scale\n- Physics simulations and demonstrations\n- Chemical reactions as art\n- Astronomical events from unique perspectives\n\n### 6. EMOTIONAL STORYTELLING\n- Visual metaphors for feelings\n- Abstract representations of concepts\n- Micro-stories without dialogue\n- Mood transitions through color/environment\n- Symbolic narratives\n\n### 7. PRODUCT & COMMERCIAL CONCEPTS\n- Products assembling themselves\n- Ingredient journeys\n- Fashion/style evolution\n- Tech products in impossible environments\n- Luxury visualization with particle effects\n\n### 8. ARCHITECTURAL & SPATIAL\n- Buildings growing/constructing themselves\n- Interior design transformations\n- Cities from unique angles\n- Spaces that defy physics\n- Historical architecture time travel\n\n## 10-SECOND VIDEO PRINCIPLES\n\n### SINGLE CONCEPT RULE\nEach video should explore ONE core idea deeply rather than multiple concepts superficially:\n- One transformation\n- One perspective shift\n- One emotional journey\n- One impossible moment\n\n### VISUAL HOOK HIERARCHY\n1. **Immediate Wonder:** Something impossible or beautiful in first frame\n2. **Evolution:** The concept develops/transforms\n3. **Resolution:** Satisfying completion or loop point\n\n### TECHNICAL CONSIDERATIONS FOR AI VIDEO\n- **Lighting:** Dramatic lighting changes, golden hour, neon, bioluminescence\n- **Textures:** Glass, liquid, smoke, fabric, particles excel in AI\n- **Movement:** Smooth camera movements, floating, flowing, morphing\n- **Physics:** Water, fire, gravity manipulation, particle systems\n- **Style:** Photorealistic, animated, painterly, cinematic\n\n## PROMPT ENGINEERING BEST PRACTICES\n\n### ESSENTIAL ELEMENTS TO INCLUDE\n1. **Visual Style:** Cinematic, hyperrealistic, ethereal, dramatic, minimalist\n2. **Camera Movement:** Static, rotating, zooming, tracking, aerial\n3. **Lighting Description:** Natural, studio, neon, volumetric, magical\n4. **Material/Texture Details:** Crystalline, liquid metal, organic, holographic\n5. **Atmosphere/Mood:** Mysterious, uplifting, tense, serene, energetic\n\n### PROMPT STRUCTURE TEMPLATE\n\"[Subject/starting point] [in specific style/setting]. [Main action/transformation] with [specific visual details]. [Camera behavior]. [Environmental elements and lighting]. [Ending state/final frame].\"\n\n### WORDS THAT UNLOCK AI VIDEO POTENTIAL\n- Morphing, transitioning, emerging, dissolving\n- Crystallizing, liquifying, fragmenting, assembling\n- Spiraling, cascading, blooming, shattering\n- Iridescent, luminescent, translucent, holographic\n- Particle effects, volumetric fog, ray tracing, caustics\n\n## VIRAL HOOKS FOR DIFFERENT CONTENT TYPES\n\n### SATISFYING CONTENT\n- Perfect loops\n- Symmetrical transformations\n- Color gradient flows\n- Geometric patterns forming\n- Natural phenomena in reverse\n\n### MIND-BENDING CONTENT\n- Optical illusions in motion\n- Perspective tricks\n- Reality-breaking physics\n- Nested realities\n- Paradoxical scenes\n\n### AESTHETIC CONTENT\n- Luxury product reveals\n- Fashion in motion\n- Art coming alive\n- Color psychology journeys\n- Minimalist transformations\n\n### EDUCATIONAL CONTENT\n- Process visualization\n- Scientific concepts illustrated\n- Historical transitions\n- How things work (cutaway views)\n- Abstract concepts made visible\n\n## CAPTION STRATEGIES BY CONTENT TYPE\n\n### For Artistic/Abstract Videos:\n- Pose philosophical questions\n- Use emotive language\n- Include creation process hashtags\n- Credit inspiration sources\n\n### For Satisfying/Visual Videos:\n- Minimal text, let video speak\n- Use sensory words\n- Include ASMR/satisfying hashtags\n- Loop indicators \"Wait for it...\" or \"Watch till end\"\n\n### For Concept/Story Videos:\n- Set context briefly\n- Tease the transformation\n- Include relevant community hashtags\n- Encourage interpretation in comments\n\n## OUTPUT FORMAT\n{\n  \"title\": \"Compelling hook that promises visual wonder (under 60 chars)\",\n  \"caption\": \"Context-appropriate caption with 3-5 targeted hashtags\",\n  \"video_prompt\": \"Detailed scene description emphasizing visual elements, transformations, camera work, lighting, and atmosphere. Focus on what makes this visually spectacular or conceptually fascinating. Include style, mood, and technical details for AI generation.\",\n  \"aspect_ratio\": \"{{ $json.aspect_ratio }}\"\n}\n\n## REMEMBER\nAI video generation removes traditional filmmaking constraints. Think impossible. Create what cameras can't capture. Design scenes that exist only in imagination. Every prompt should make viewers wonder \"How is this possible?\" The goal is visual innovation that stops scrolling and demands sharing."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1680,
+        1280
+      ],
+      "id": "f8d7c2f1-23df-459b-b269-c1f2e669a9f5",
+      "name": "Video Content Strategist1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1.1,
+      "position": [
+        -1664,
+        1632
+      ],
+      "id": "de350a6c-5403-44a0-8b34-d20968568cfc",
+      "name": "Think1"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"title\": \"Catchy meme title under 60 characters\",\n  \"caption\": \"Engaging social media caption with 3-5 relevant hashtags\",\n  \"video_prompt\": \"Detailed Sora2 prompt: describe scene, camera angle, movement, lighting, expressions, and timing. 2-3 sentences. Be specific and cinematic.\",\n  \"aspect_ratio\": \"9:16\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -1504,
+        1632
+      ],
+      "id": "61f9c608-4107-4774-aa80-09be58e9e8a5",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "57719637-f95e-46af-aa17-134cc5e217dc",
+              "name": "topic_ideas",
+              "value": "2D cartoon character japanese man talking to a dragon about magic",
+              "type": "string"
+            },
+            {
+              "id": "0648bc04-3737-4b7e-a1a0-584388a6a329",
+              "name": "aspect_ratio",
+              "value": "9:16",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1920,
+        1280
+      ],
+      "id": "2a117ab4-4474-4eb3-973b-2fda350cfecc",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.kie.ai/api/v1/jobs/createTask",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"sora-2-text-to-video\",\n  \"input\": {\n    \"prompt\": \"{{ $json.output.video_prompt }}\",\n    \"aspect_ratio\": \"{{ $json.output.aspect_ratio === \"9:16\" ? \"portrait\" : $json.output.aspect_ratio === \"16:9\" ? \"landscape\" : $json.output.aspect_ratio }}\",\n    \"quality\": \"hd\"\n  }\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -1328,
+        1264
+      ],
+      "id": "c63b011d-5878-4155-9a72-00088e90f7ec",
+      "name": "Create Video1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "a8eRYOjrQXPunIau",
+          "name": "sorakie"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 320
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1056,
+        1312
+      ],
+      "id": "02a6601b-be51-4ec6-b93a-873604c9b7ee",
+      "name": "Wait2",
+      "webhookId": "30d49f78-fc43-400a-91ee-596e53ad1fda"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.kie.ai/api/v1/jobs/recordInfo?taskId={{ $('Create Video1').item.json.data.taskId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -816,
+        1328
+      ],
+      "id": "dfdf9d1f-cf1c-4678-a5f0-8dce88637f71",
+      "name": "Get Video1",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "a8eRYOjrQXPunIau",
+          "name": "sorakie"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.data.state }}",
+                    "rightValue": "success",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "2f397144-4b79-4a38-992b-af3d19c618e0"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "success"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4d58e3d1-85d1-420a-a0e2-8ccc2ab348eb",
+                    "leftValue": "={{ $json.data.state }}",
+                    "rightValue": "ing",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "in progress"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f12a1b5a-ccd7-4358-9954-a23f16b9d85f",
+                    "leftValue": "={{ $json.data.state }}",
+                    "rightValue": "fail",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "failed"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -464,
+        1328
+      ],
+      "id": "a585af03-5250-49be-a61e-18828bd2e3b2",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "amount": 120
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -528,
+        1648
+      ],
+      "id": "3340ee38-d0f0-4799-a8a7-477214a33398",
+      "name": "Wait3",
+      "webhookId": "75bbb5c0-925d-41d8-8286-29829674d711"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse the resultJson string into an object\nconst parsedResult = JSON.parse($input.first().json.data.resultJson);\n\n// Extract the first URL from resultUrls array\nconst videoUrl = parsedResult.resultUrls[0];\n\n// Return the URL for the next node\nreturn [{ json: { videoUrl } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -112,
+        1568
+      ],
+      "id": "9af40420-5c1b-420d-972a-5c62bb986e29",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.videoUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -192,
+        1200
+      ],
+      "id": "b0e654da-471c-4fa5-bf30-b0852856aa69",
+      "name": "AI Voice Video",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('Code in JavaScript1').item.json.videoUrl }}",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "name": "Download Video2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        272,
+        1152
+      ],
+      "id": "10883266-5f38-4ca7-8357-3b809dfc6071"
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.preview_url }}",
+        "responseFormat": "file",
+        "options": {}
+      },
+      "name": "Download Audio2",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        560,
+        1584
+      ],
+      "id": "ceb3e7b0-479c-4d1a-919d-0cce41b24a3b"
+    },
+    {
+      "parameters": {
+        "fileName": "/tmp/video.mp4",
+        "options": {}
+      },
+      "name": "Save Video2",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        592,
+        1248
+      ],
+      "id": "7434efe5-8d4a-4751-a051-a12bab95b284"
+    },
+    {
+      "parameters": {
+        "fileName": "/tmp/audio.mp3",
+        "options": {}
+      },
+      "name": "Save Audio2",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        768,
+        1584
+      ],
+      "id": "f328a979-92de-41a9-9aed-d983d69ee0c6"
+    },
+    {
+      "parameters": {},
+      "name": "Merge2",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1040,
+        1344
+      ],
+      "id": "81118fe6-ada2-4b6c-a477-df129e41eb22"
+    },
+    {
+      "parameters": {
+        "command": "ffmpeg -i /tmp/video.mp4 -i /tmp/audio.mp3 -c:v copy -map 0:v:0 -map 1:a:0 -shortest /tmp/video_with_new_audio.mp4\n"
+      },
+      "name": "Merge Video + Audio2",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1296,
+        1440
+      ],
+      "id": "5a4b8faa-19ea-44ff-b228-a97b242a94d3"
+    },
+    {
+      "parameters": {
+        "filePath": "/tmp/video_with_new_audio.mp4"
+      },
+      "name": "Read Merged Video2",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1456,
+        1264
+      ],
+      "id": "a6f568d7-ceff-4dc1-b47c-e932f25fc2ec"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "name": "Respond with Video2",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        1648,
+        1440
+      ],
+      "id": "29b02e85-123f-4c05-8ef6-13092f4c111c"
+    },
+    {
+      "parameters": {
+        "command": "rm -f /tmp/video.mp4 /tmp/audio.mp3 /tmp/video_with_new_audio.mp4"
+      },
+      "name": "Cleanup /tmp",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        64,
+        1408
+      ],
+      "id": "8059b19a-668c-4fc9-bfa0-a5aac9f60bb0"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $('Video Content Strategist1').item.json.output.title }}",
+        "regionCode": "PK",
+        "categoryId": "1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        1872,
+        1472
+      ],
+      "id": "718d3823-f01a-48dc-86b7-612fb294272d",
+      "name": "Upload a video",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "5oWlBRUiqbQxNzkY",
+          "name": "YouTube account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -2288,
+        1344
+      ],
+      "id": "f243d24b-247c-4ff9-8cf8-49cf2b9576f1",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Video Content Strategist1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think1": {
+      "ai_tool": [
+        [
+          {
+            "node": "Video Content Strategist1",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Video Content Strategist1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Video Content Strategist1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Content Strategist1": {
+      "main": [
+        [
+          {
+            "node": "Create Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Video1": {
+      "main": [
+        [
+          {
+            "node": "Wait2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait2": {
+      "main": [
+        [
+          {
+            "node": "Get Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Video1": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait3": {
+      "main": [
+        [
+          {
+            "node": "Get Video1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "AI Voice Video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Video2": {
+      "main": [
+        [
+          {
+            "node": "Save Video2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Audio2": {
+      "main": [
+        [
+          {
+            "node": "Save Audio2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Video2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Audio2": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Merge Video + Audio2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Video + Audio2": {
+      "main": [
+        [
+          {
+            "node": "Read Merged Video2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Merged Video2": {
+      "main": [
+        [
+          {
+            "node": "Respond with Video2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cleanup /tmp": {
+      "main": [
+        [
+          {
+            "node": "Download Video2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get a voice",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Voice Video": {
+      "main": [
+        [
+          {
+            "node": "Cleanup /tmp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a voice": {
+      "main": [
+        [
+          {
+            "node": "Download Audio2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond with Video2": {
+      "main": [
+        [
+          {
+            "node": "Upload a video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "11ff2b7c-239e-408d-9f26-76ddb2bfe379",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "041c3e419237387d6e354f25dbd26d30f98c346af42a92d7d89da037281eb0e4"
+  },
+  "id": "oB6qGaHv5jfReMaD",
+  "tags": []
+}
